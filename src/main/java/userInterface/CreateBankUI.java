@@ -14,10 +14,13 @@ public class CreateBankUI {
         System.out.print("Enter Bank Address: ");
         String bankAddress = sc.nextLine();
 
-        System.out.print("Enter Bank Address: ");
+        System.out.print("Enter Bank Name : ");
         String bankName = sc.nextLine();
 
         BankService bankService = new BankService();
         bankService.addBank(bankCode,bankAddress,bankName);
+
+        AdminRegistration adminRegistration = new AdminRegistration();
+        adminRegistration.registerAdmin();
     }
 }

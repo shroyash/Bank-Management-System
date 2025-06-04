@@ -13,7 +13,7 @@ public class CustomerManager {
         List<String> lines = fileManager.readFile(Constant.CUSTOMER_FILE);
         List<Customer> customers = new ArrayList<>();
         for (String line : lines) {
-            String[] dataArr = line.split(Constant.DELIMETER);
+            String[] dataArr = line.split(Constant.DELIMITER);
             Customer customer = new Customer(
                     Integer.parseInt(dataArr[0]),
                     dataArr[1],
@@ -21,7 +21,8 @@ public class CustomerManager {
                     Integer.parseInt(dataArr[4]),
                     dataArr[5],
                     dataArr[2],
-                    dataArr[6]
+                    dataArr[6],
+                    dataArr[7]
             );
             customers.add(customer);
         }

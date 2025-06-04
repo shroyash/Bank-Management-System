@@ -38,7 +38,7 @@ public class Bank {
     }
 
     public String toCsv() {
-        return code + Constant.DELIMETER + address + Constant.DELIMETER + name;
+        return code + Constant.DELIMITER + address + Constant.DELIMITER + name;
     }
 
     // Readable string format

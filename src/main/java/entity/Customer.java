@@ -10,8 +10,9 @@ public class Customer {
     private String customerUserName;
     private String customerAddress;
     private String customerCard;
+    private String bankName;
 
-    public Customer(int customerId, String customerName, String customerPhoneNumber, int customerPassword, String customerUserName, String customerAddress, String customerCard) {
+    public Customer(int customerId, String customerName, String customerPhoneNumber, int customerPassword, String customerUserName, String customerAddress, String customerCard ,String bankName) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerPhoneNumber = customerPhoneNumber;
@@ -19,6 +20,10 @@ public class Customer {
         this.customerUserName = customerUserName;
         this.customerAddress = customerAddress;
         this.customerCard = customerCard;
+        this.bankName = bankName;
+    }
+    public Customer(){
+
     }
 
     public int getCustomerId() {
@@ -47,6 +52,9 @@ public class Customer {
 
     public String getCustomerCard() {
         return customerCard;
+    }
+    public String getBankName() {
+        return bankName;
     }
 
     public void setCustomerId(int customerId) {
@@ -77,8 +85,12 @@ public class Customer {
         this.customerCard = customerCard;
     }
 
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
     public String toCsv() {
-        return customerId + Constant.DELIMETER + customerName + Constant.DELIMETER + customerAddress + Constant.DELIMETER + customerPhoneNumber + Constant.DELIMETER + customerPassword + Constant.DELIMETER + customerUserName + Constant.DELIMETER + customerCard;
+        return customerId + Constant.DELIMITER + customerName + Constant.DELIMITER + customerAddress + Constant.DELIMITER + customerPhoneNumber + Constant.DELIMITER + customerPassword + Constant.DELIMITER + customerUserName + Constant.DELIMITER + customerCard + Constant.DELIMITER + bankName;
     }
 
     @Override

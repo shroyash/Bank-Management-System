@@ -59,8 +59,8 @@ public class Account {
     }
 
     public String toCsv() {
-        return accountId + Constant.DELIMETER + accountStatus + Constant.DELIMETER + accountBalance + Constant.DELIMETER + accountDescription + Constant.DELIMETER +
-                customer.getCustomerId() + Constant.DELIMETER + openingDate;
+        return accountId + Constant.DELIMITER + accountStatus + Constant.DELIMITER + accountBalance + Constant.DELIMITER + accountDescription + Constant.DELIMITER +
+                customer.getCustomerId() + Constant.DELIMITER + openingDate;
     }
 
 

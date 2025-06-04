@@ -19,7 +19,7 @@ public class AccountManager {
         List<Customer> customers = customerManager.readCustomersFromFile();
 
         for (String line : lines) {
-            String[] dataArr = line.split(Constant.DELIMETER);
+            String[] dataArr = line.split(Constant.DELIMITER);
             int customerId = Integer.parseInt(dataArr[4]);
             Customer customer = findCustomerById(customers, customerId);
 

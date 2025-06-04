@@ -1,32 +1,32 @@
 package userInterface;
 
 import constant.Constant;
+import entity.Bank;
+import manager.BankManager;
 import service.BankService;
 
 import java.util.Scanner;
 
 public class LandingUI {
 
-    public void start(){
+    public static void start(){
         System.out.println(Constant.WELCOME_MESSAGE);
+        System.out.println("1). Create a New Bank");
+        System.out.println("2). Use Existing Bank");
+        System.out.print("Choose Option : ");
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
-        BankService bankService = new BankService();
+        BankManager bankManager = new BankManager();
         switch (option){
             case 1 :
-                System.out.println("1). Create a New Bank");
                 CreateBankUI.createBank(sc);
-
                 break;
             case 2 :
-                System.out.println("2). Use Existing Bank");
-                bankService.getClass();
+                bankManager.getBankList();
                 break;
 
             default:
                 System.out.println("Invalid input");
         }
-
-
     }
 }
