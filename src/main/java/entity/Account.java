@@ -5,7 +5,7 @@ import constant.Constant;
 public class Account {
     private int accountId;
     private String accountStatus;
-    private int accountBalance;
+    private double accountBalance;
     private String accountDescription;
     private Customer customer;
     private String openingDate;
@@ -34,11 +34,11 @@ public class Account {
         this.accountStatus = accountStatus;
     }
 
-    public int getAccountBalance() {
+    public double getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(int accountBalance) {
+    public void setAccountBalance(double accountBalance) {
         this.accountBalance = accountBalance;
     }
 
@@ -56,6 +56,13 @@ public class Account {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+
+
+    public void deposit(int accountBalance){
+        this.accountBalance += accountBalance;
+        System.out.println(accountBalance + "Deposited");
     }
 
     public String toCsv() {
