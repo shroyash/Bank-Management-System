@@ -9,7 +9,8 @@ public class SavingAccount extends Account{
     public void calculateAndAddInterest() {
         double interest = getAccountBalance() * INTEREST_RATE / 12;
         setAccountBalance(getAccountBalance() + interest);
-        System.out.println("Interest added: " + interest);
+        System.out.println("Interest is added: " + interest);
+
     }
 
     public void withdraw(double amount) {
