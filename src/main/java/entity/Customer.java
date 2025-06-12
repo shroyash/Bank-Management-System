@@ -25,6 +25,10 @@ public class Customer {
     public Customer(){
 
     }
+    public Customer(int customerId, String customerName){
+        this.customerId = customerId;
+        this.customerName = customerName;
+    }
 
     public int getCustomerId() {
         return customerId;
@@ -90,8 +94,11 @@ public class Customer {
     }
 
     public String toCsv() {
-        return customerId + Constant.DELIMITER + customerName + Constant.DELIMITER + customerAddress + Constant.DELIMITER + customerPhoneNumber + Constant.DELIMITER + customerPassword + Constant.DELIMITER + customerUserName + Constant.DELIMITER + customerCard + Constant.DELIMITER + bankName;
+        return customerId + Constant.DELIMITER + customerName + Constant.DELIMITER + customerPhoneNumber +
+                Constant.DELIMITER + customerPassword + Constant.DELIMITER + customerUserName +
+                Constant.DELIMITER + customerAddress + Constant.DELIMITER + customerCard + Constant.DELIMITER + bankName;
     }
+
 
     @Override
     public String toString() {

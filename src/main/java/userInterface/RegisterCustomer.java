@@ -1,6 +1,7 @@
 package userInterface;
 
 import entity.Customer;
+import org.example.Main;
 import service.CustomerService;
 
 import java.util.Scanner;
@@ -8,7 +9,6 @@ import java.util.Scanner;
 public class RegisterCustomer {
 
     private final CustomerService customerService = new CustomerService();
-
 
     public void displayLoginOption(){
         System.out.println("1). Register as Customer");
@@ -31,11 +31,11 @@ public class RegisterCustomer {
         System.out.println("Enter your phone number: ");
         String phone = scanner.nextLine();
 
-        System.out.println("Enter your password: ");
-        int password = Integer.parseInt(scanner.nextLine());
-
         System.out.println("Choose a username: ");
         String username = scanner.nextLine();
+
+        System.out.println("Enter your password: ");
+        int password = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Enter your card info: ");
         String card = scanner.nextLine();
@@ -65,6 +65,7 @@ public class RegisterCustomer {
        boolean isValid = customerService.isValidCustomer(bankName, userName, password);
         if (isValid) {
             System.out.println("Login successful. Welcome, " + userName + "!");
+            MainUI.mainUi();
         } else {
             System.out.println("Login failed. Invalid credentials.");
         }

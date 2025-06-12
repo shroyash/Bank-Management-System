@@ -5,17 +5,20 @@ import constant.Constant;
 public class Account {
     private int accountId;
     private String accountStatus;
-    private double accountBalance;
+    private int accountBalance;
     private String accountDescription;
     private Customer customer;
     private String openingDate;
+    private String accountType;
 
-    public Account(int accountId, String accountStatus, int accountBalance, String accountDescription, Customer customer) {
+    public Account(int accountId, String accountStatus, int accountBalance, String accountDescription, Customer customer,String openingDate, String accountType) {
         this.accountId = accountId;
         this.accountStatus = accountStatus;
         this.accountBalance = accountBalance;
         this.accountDescription = accountDescription;
         this.customer = customer;
+        this.openingDate = openingDate;
+        this.accountType = accountType;
     }
 
     public int getAccountId() {
@@ -34,11 +37,27 @@ public class Account {
         this.accountStatus = accountStatus;
     }
 
-    public double getAccountBalance() {
+    public int getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(double accountBalance) {
+    public String getOpeningDate() {
+        return openingDate;
+    }
+
+    public void setOpeningDate(String openingDate) {
+        this.openingDate = openingDate;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public void setAccountBalance(int accountBalance) {
         this.accountBalance = accountBalance;
     }
 
@@ -66,9 +85,15 @@ public class Account {
     }
 
     public String toCsv() {
-        return accountId + Constant.DELIMITER + accountStatus + Constant.DELIMITER + accountBalance + Constant.DELIMITER + accountDescription + Constant.DELIMITER +
-                customer.getCustomerId() + Constant.DELIMITER + openingDate;
+        return accountId + Constant.DELIMITER
+                + accountStatus + Constant.DELIMITER
+                + accountBalance + Constant.DELIMITER
+                + accountDescription + Constant.DELIMITER
+                + customer.getCustomerId() + Constant.DELIMITER
+                + openingDate + Constant.DELIMITER
+                + accountType;
     }
+
 
 
     @Override

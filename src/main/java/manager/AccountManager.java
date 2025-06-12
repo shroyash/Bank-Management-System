@@ -20,18 +20,21 @@ public class AccountManager {
 
         for (String line : lines) {
             String[] dataArr = line.split(Constant.DELIMITER);
+
+            int accountId = Integer.parseInt(dataArr[0]);
+            String status = dataArr[1];
+            double balance = Double.parseDouble(dataArr[2]);
+            String description = dataArr[3];
             int customerId = Integer.parseInt(dataArr[4]);
+            String openingDate = dataArr[5];
+            String accountType = dataArr[6];
+
             Customer customer = findCustomerById(customers, customerId);
 
-            Account account = new Account(
-                    Integer.parseInt(dataArr[0]),
-                    dataArr[1],
-                    Integer.parseInt(dataArr[2]),
-                    dataArr[3],
-                    customer
-            );
+            Account account = new Account(accountId, status, (int) balance, description, customer, openingDate, accountType);
             accounts.add(account);
         }
+
         return accounts;
     }
 

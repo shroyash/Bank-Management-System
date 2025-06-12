@@ -5,6 +5,7 @@ import entity.Admin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AdminManager {
     private final List<Admin> adminList = new ArrayList<>();
@@ -28,7 +29,7 @@ public class AdminManager {
         List<String> lines = fileManager.readFile(Constant.ADMIN_FILE);
         List<Admin> admins = new ArrayList<>();
         for (String line : lines) {
-            String[] data = line.split(Constant.DELIMITER);
+            String[] data =line.split(Pattern.quote(Constant.DELIMITER));
             Admin admin = new Admin(
                     data[0],
                     Integer.parseInt(data[1]),
