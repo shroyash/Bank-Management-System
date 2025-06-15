@@ -23,7 +23,7 @@ public class FileManager {
     }
 
     public void writeFile(String fileName, List<String> toWriteData) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             for (String line : toWriteData) {
                 writer.write(line);
                 writer.newLine();

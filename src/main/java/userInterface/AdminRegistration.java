@@ -26,11 +26,11 @@ public class AdminRegistration {
         adminManager.registerAdmin(admin);
 
         System.out.println("Admin registered successfully!");
-
+        loginAdmin();
     }
 
     public void loginAdmin() {
-        System.out.println("==== Admin Login ====");
+        System.out.println("\n==== Admin Login ====");
         System.out.print("Enter Admin BankName: ");
         String bankName = scanner.nextLine();
         System.out.print("Enter Username: ");
@@ -40,6 +40,8 @@ public class AdminRegistration {
         boolean isValid = adminManager.validateLogin(bankName,username,password);
         if(isValid){
             System.out.println("Login Sucessful");
+            AdminPannel.showAdminPanel();
+
         }else{
             System.out.println("Invalid user credential");
         }

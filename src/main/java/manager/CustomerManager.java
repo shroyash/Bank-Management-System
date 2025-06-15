@@ -15,7 +15,7 @@ public class CustomerManager {
         List<Customer> customers = new ArrayList<>();
 
         for (String line : lines) {
-            String[] dataArr = line.split(Pattern.quote(Constant.DELIMITER));
+            String[] dataArr = line.split(Constant.DELIMITER);
             try {
                 Customer customer = new Customer(
                         Integer.parseInt(dataArr[0]),  // customerId

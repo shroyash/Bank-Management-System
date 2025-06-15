@@ -13,10 +13,14 @@ public class AccountManager {
     FileManager fileManager = new FileManager();
     CustomerManager customerManager = new CustomerManager();
 
+
+
     public List<Account> readAccountsFromFile() {
         List<String> lines = fileManager.readFile(Constant.ACCOUNT_FILE);
         List<Account> accounts = new ArrayList<>();
+
         List<Customer> customers = customerManager.readCustomersFromFile();
+
 
         for (String line : lines) {
             String[] dataArr = line.split(Constant.DELIMITER);
@@ -47,7 +51,10 @@ public class AccountManager {
     }
 
     private Customer findCustomerById(List<Customer> customers, int customerId) {
+
         for (Customer c : customers) {
+            System.out.println(c.getCustomerId());
+            System.out.println(customerId);
             if (c.getCustomerId() == customerId) {
                 return c;
             }

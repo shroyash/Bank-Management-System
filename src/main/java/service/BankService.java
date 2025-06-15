@@ -7,13 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankService {
-    List<Bank> bankList = new ArrayList<>();
     BankManager bankManager = new BankManager();
 
     public void addBank(int bankCode, String bankAddress, String bankName ){
-        bankList.add(new Bank(bankCode,bankAddress,bankName));
+        List<Bank> banklist = bankManager.readBankFile();
+        banklist.add(new Bank(bankCode,bankAddress,bankName));
+        bankManager.writeToBankFile(banklist);
         System.out.println("Sucessfully bank created");
-        bankManager.writeToBankFile(bankList);
     }
-
 }

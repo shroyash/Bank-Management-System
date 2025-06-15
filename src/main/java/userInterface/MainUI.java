@@ -1,12 +1,17 @@
 package userInterface;
 
+import entity.Account;
+import service.AccountService;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class MainUI {
 
-    public static void mainUi(){
+    public static void mainUi() {
 
         BankUI bankUI = new BankUI();
+        AccountService accountService = new AccountService();
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -21,31 +26,50 @@ public class MainUI {
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
 
             switch (choice) {
-                case 1:
-                    bankUI.showAccountOptions();
-                    break;
-                case 2:
-                    System.out.println("Viewing account (details would go here)");
-                    break;
-                case 3:
-                    System.out.print("Enter deposit amount: ");
-                    double depositAmount = scanner.nextDouble();
-                    System.out.println("Deposited: $" + depositAmount);
-                    break;
-                case 4:
-                    System.out.print("Enter withdrawal amount: ");
-                    double withdrawAmount = scanner.nextDouble();
-                    System.out.println("Withdrew: $" + withdrawAmount);
-                    break;
-                case 5:
+                case 1 -> bankUI.showAccountOptions();
+
+                case 2 -> {
+                    System.out.print("Enter your Customer ID: ");
+                    int customerId = scanner.nextInt();
+                    accountService.viewAccountsByCustomerId(customerId);
+                }
+
+                case 3 -> {
+                    System.out.print("Enter Account ID to deposit into: ");
+                    int accountId = scanner.nextInt();
+                    System.out.print("Enter amount to deposit: ");
+                    double amount = scanner.nextDouble();
+
+                    boolean success = accountService.depositToAccount(accountId, amount);
+                    if (success) {
+                        System.out.println("Deposit successful!");
+                    } else {
+                        System.out.println("Account not found. Please check Account ID.");
+                    }
+                }
+
+                case 4 -> {
+                    System.out.print("Enter Account ID: ");
+                    int accountId = scanner.nextInt();
+                    System.out.print("Enter amount to withdraw: ");
+                    double amount = scanner.nextDouble();
+
+                    boolean success = accountService.withdrawFromAccount(accountId, amount);
+                    if (success) {
+                        System.out.println("Withdrawal successful.");
+                    } else {
+                        System.out.println("Withdrawal failed. Check account or balance.");
+                    }
+                }
+
+                case 5 -> {
                     running = false;
-                    System.out.println("Exiting... Thank you!");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println("Thank you for banking with us!");
+                }
+
+                default -> System.out.println("⚠Invalid choice. Please try again.");
             }
         }
 

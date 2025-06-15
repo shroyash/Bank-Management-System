@@ -7,6 +7,9 @@ public class SavingAccount extends Account{
     public SavingAccount(int accountId, String accountStatus, int accountBalance, String accountDescription, Customer customer, String openingDate, String accountType) {
         super(accountId, accountStatus, accountBalance, accountDescription, customer, openingDate, accountType);
     }
+    public SavingAccount(){
+
+    }
 
     public void calculateAndAddInterest() {
         double interest = getAccountBalance() * INTEREST_RATE / 12;

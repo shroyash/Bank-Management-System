@@ -17,7 +17,6 @@ public class BankManager {
     AdminRegistration adminRegistration = new AdminRegistration();
 
 
-
     public void writeToBankFile(List<Bank> bankList){
         List<String> bankListPlanData = new ArrayList<>();
         for(Bank data : bankList){
@@ -25,6 +24,27 @@ public class BankManager {
         }
         fileManager.writeFile(Constant.BANK_FILE,bankListPlanData);
     }
+
+    public List<Bank>  readBankFile() {
+        List<String> bankListFile = fileManager.readFile(Constant.BANK_FILE);
+        List<Bank> bankList = new ArrayList<>();
+
+        for (String line : bankListFile) {
+            String[] bankData = line.split(Constant.DELIMITER);
+            if (bankData.length == 3) {
+                int code = Integer.parseInt(bankData[0]);
+                String address = bankData[1];
+                String name = bankData[2];
+                Bank bank = new Bank(code, address, name);
+                bankList.add(bank);
+            } else {
+                System.out.println("Invalid bank data: " + line);
+            }
+        }
+        return bankList;
+
+    }
+
 
     public void getBankList() {
         List<String> bankList = fileManager.readFile(Constant.BANK_FILE);
@@ -41,7 +61,7 @@ public class BankManager {
 
         System.out.println("Available Banks:");
         for (int i = 0; i < bankList.size(); i++) {
-            String[] parts = bankList.get(i).split(Pattern.quote(Constant.DELIMITER));
+            String[] parts = bankList.get(i).split(Constant.DELIMITER);
             String bankName = parts[2];
             System.out.println( (i+1) + "." + bankName);
         }

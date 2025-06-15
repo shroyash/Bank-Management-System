@@ -7,6 +7,10 @@ public class CurrentAccount extends Account {
         super(accountId, accountStatus, accountBalance, accountDescription, customer, openingDate, accountType);
     }
 
+    public CurrentAccount(){
+
+    }
+
     public void withdraw(double amount) {
         if (getAccountBalance() + OVERDRAFT_LIMIT < amount) {
             System.out.println("Withdrawal exceeds overdraft limit!");

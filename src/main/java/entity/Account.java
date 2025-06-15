@@ -20,6 +20,9 @@ public class Account {
         this.openingDate = openingDate;
         this.accountType = accountType;
     }
+    public Account(){
+
+    }
 
     public int getAccountId() {
         return accountId;
@@ -77,12 +80,6 @@ public class Account {
         this.customer = customer;
     }
 
-
-
-    public void deposit(int accountBalance){
-        this.accountBalance += accountBalance;
-        System.out.println(accountBalance + "Deposited");
-    }
 
     public String toCsv() {
         return accountId + Constant.DELIMITER
