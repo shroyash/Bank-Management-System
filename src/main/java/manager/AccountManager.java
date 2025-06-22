@@ -23,7 +23,7 @@ public class AccountManager {
 
 
         for (String line : lines) {
-            String[] dataArr = line.split(Constant.DELIMITER);
+            String[] dataArr = line.split("\\|");
 
             int accountId = Integer.parseInt(dataArr[0]);
             String status = dataArr[1];

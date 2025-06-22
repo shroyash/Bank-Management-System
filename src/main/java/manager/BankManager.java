@@ -31,15 +31,12 @@ public class BankManager {
 
         for (String line : bankListFile) {
             String[] bankData = line.split(Constant.DELIMITER);
-            if (bankData.length == 3) {
                 int code = Integer.parseInt(bankData[0]);
                 String address = bankData[1];
                 String name = bankData[2];
                 Bank bank = new Bank(code, address, name);
                 bankList.add(bank);
-            } else {
-                System.out.println("Invalid bank data: " + line);
-            }
+
         }
         return bankList;
 

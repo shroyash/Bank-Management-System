@@ -16,6 +16,9 @@ public class ATM {
     public int getAtmId() {
         return atmId;
     }
+    public int getAtmId() {
+        return atmId;
+    }
 
     public void setAtmId(int atmId) {
         this.atmId = atmId;
@@ -24,6 +27,7 @@ public class ATM {
     public String getLocation() {
         return location;
     }
+
 
     public void setLocation(String location) {
         this.location = location;

@@ -7,5 +7,5 @@ public class Constant {
     public static final String ACCOUNT_FILE = RESOURCES_DIRS+"\\accounts.csv";
     public static final String BANK_FILE = RESOURCES_DIRS+"\\bank.csv";
     public static final String ADMIN_FILE = RESOURCES_DIRS+"\\admin.csv";
-    public static final String DELIMITER = "\\|";
+    public static final String DELIMITER = "|";
 }
